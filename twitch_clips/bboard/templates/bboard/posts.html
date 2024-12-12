@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bboard_tags %}
+
+{% block content %}
+<div class="board">
+    <div class="board-inner">
+        {% for post in posts %}
+        <div class="item">
+            <div class="item_link">
+                <div class="item_top">
+                    <a href="{% url 'post' post.slug %}" class="item_title">{{ post.title|truncatechars:14 }}</a>
+                    <a href="{% url 'streamer' post.streamer.user_id %}" class="item_streamer-link">
+                        <span class="item_streamer-name">{{ post.streamer.user_name }}</span>
+                        <img class="item_streamer-logo" src="{{ post.streamer.logo }}" alt="logo">
+                    </a>
+                </div>
+                <div class="item_img">
+                    <a href="{% url 'post' post.slug %}">
+                        <img class="item_img" src="{{ post.image }}" alt="Image clip's">
+                    </a>
+                </div>
+                <div class="item_bottom">
+                    <span class="item_bottom-like">
+                        <i class='bx bx-like'></i>
+                        <span>123</span>
+                    </span>
+                    <span class="item_bottom-comment">
+                        <i class='bx bx-comment' ></i>
+                        <span>29</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

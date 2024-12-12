@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="content">
+    <div class="item-iframe">
+        <h1>{{ title }}</h1>
+        <a href="{% url 'streamer' post.streamer.user_id %}">
+            <img src="{{ post.streamer.logo }}" alt="">
+            <p>{{ post.streamer.user_name }}</p>
+        </p>
+        <iframe
+            src="{{ post.embed }}&autoplay=true&parent=127.0.0.1"
+            width="1000px"
+            height="562px"
+            allowfullscreen>
+        </iframe>
+        <a href="{% url 'delete' post.slug %}">Удалить запись</a>
+    </div>
+</div>
+{% endblock %}

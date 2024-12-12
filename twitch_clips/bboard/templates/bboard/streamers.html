@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load bboard_tags %}
+
+{% block content %}
+    {% for streamer in streamers %}
+    <a href="{% url 'streamer' streamer.user_id %}" class="item_streamer">
+        <img class="item_streamer-image" src="{{ streamer.logo }}">
+        <span>{{ streamer.user_name }}</span>
+        <span>{% get_count_clips streamer %} клипов</span>
+    </a>
+    {% endfor %}
+{% endblock %}

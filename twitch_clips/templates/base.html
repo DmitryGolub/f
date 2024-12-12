@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link type="text/css" rel="stylesheet" href="{% static 'bboard/css/styles.css' %}">
+
+</head>
+<body>
+
+<div class="main">
+    <menu class="menu">
+        <ul class="menu_items">
+            <li class="menu_item"><a href="{% url 'home' %}">Главная</a></li>
+            <li class="menu_item"><a href="{% url 'addpage' %}">Добавить статью</a></li>
+            <li class="menu_item"><a href="{% url 'streamers' %}">Стримеры</a></li>
+        </ul>
+    </menu>
+    <div class="main-inner">
+{% block content %}
+{% endblock %}
+    </div>
+</div>
+
+</body>
+
+</html>
